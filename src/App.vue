@@ -30,11 +30,13 @@ export default {
   },
   mounted() {
     document.querySelector(".pill").classList.add("activePill");
+    const loading = this.$vs.loading({ text: "Fetching them memes Bouy!!!" });
     fetch(`https://www.reddit.com/r/programminghumor/new.json`)
       .then((res) => {
         return res.json(); // Convert the data into JSON
       })
       .then((res) => {
+        loading.close();
         const postsArr = res.data.children;
         const memes = [];
         postsArr.forEach((post) => {
@@ -67,5 +69,6 @@ body {
 }
 .memes {
   scroll-snap-type: mandatory;
+  max-width: 500px;
 }
 </style>

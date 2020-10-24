@@ -50,11 +50,13 @@ export default {
       this.memeFetcher(subreddit);
     },
     memeFetcher(subreddit) {
+      const loading = this.$vs.loading();
       fetch(`https://www.reddit.com/r/${subreddit}/new.json`)
         .then((res) => {
           return res.json(); // Convert the data into JSON
         })
         .then((res) => {
+          loading.close();
           const postsArr = res.data.children;
           const memes = [];
           postsArr.forEach((post) => {

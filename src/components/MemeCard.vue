@@ -1,6 +1,6 @@
 <template>
   <div class="MemeCard">
-    <img class="blurImage" :src="imageSrc" alt="" />
+    <!-- <img class="blurImage" :src="imageSrc" alt="" /> -->
     <div class="memeArea">
       <img :src="imageSrc" alt="" />
     </div>
