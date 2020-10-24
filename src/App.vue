@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="memes">
+      <MemeCard v-for="meme in memes" :key="meme.id" :imageSrc="meme.source" />
+    </div>
+    <Pills v-on:memes="populateData" msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pills from "./components/Pills.vue";
+import MemeCard from "./components/MemeCard.vue";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      memes: [],
+    };
+  },
+  methods: {
+    populateData(memes) {
+      this.memes = memes;
+    },
+  },
   components: {
-    HelloWorld
-  }
-}
+    Pills,
+    MemeCard,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background: black;
+}
+.memes {
+  scroll-snap-type: mandatory;
 }
 </style>
