@@ -47,10 +47,14 @@ export default {
     switchActivePill(e, subreddit) {
       document.querySelector(".activePill").classList.remove("activePill");
       e.target.classList.add("activePill");
+      document.body.scrollTop = 0;
       this.memeFetcher(subreddit);
     },
     memeFetcher(subreddit) {
-      const loading = this.$vs.loading();
+      const loading = this.$vs.loading({
+        text: "Relaaax. Let me help you waste time,ok",
+        background: "black",
+      });
       fetch(`https://www.reddit.com/r/${subreddit}/new.json`)
         .then((res) => {
           return res.json(); // Convert the data into JSON

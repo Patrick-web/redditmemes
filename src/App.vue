@@ -30,7 +30,10 @@ export default {
   },
   mounted() {
     document.querySelector(".pill").classList.add("activePill");
-    const loading = this.$vs.loading({ text: "Fetching them memes Bouy!!!" });
+    const loading = this.$vs.loading({
+      text: "Fetching them memes Bouy!!!",
+      background: "#141417",
+    });
     fetch(`https://www.reddit.com/r/programminghumor/new.json`)
       .then((res) => {
         return res.json(); // Convert the data into JSON
