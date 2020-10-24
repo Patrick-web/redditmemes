@@ -20,12 +20,37 @@ export default {
   },
   methods: {
     populateData(memes) {
+      console.log(memes);
       this.memes = memes;
     },
   },
   components: {
     Pills,
     MemeCard,
+  },
+  mounted() {
+    document.querySelector(".pill").classList.add("activePill");
+    fetch(`https://www.reddit.com/r/programminghumor/new.json`)
+      .then((res) => {
+        return res.json(); // Convert the data into JSON
+      })
+      .then((res) => {
+        const postsArr = res.data.children;
+        const memes = [];
+        postsArr.forEach((post) => {
+          const image = {
+            id: Math.random()
+              .toString(12)
+              .substring(0),
+            source: post.data.url,
+          };
+          this.memes.push(image);
+        });
+        this.memes.shift();
+      })
+      .catch(function(err) {
+        console.log(err); // Log error if any
+      });
   },
 };
 </script>

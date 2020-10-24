@@ -20,6 +20,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
   .blurImage {
     position: absolute;
     width: 100%;

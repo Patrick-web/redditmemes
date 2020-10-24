@@ -1,8 +1,5 @@
 <template>
   <div class="Pills">
-    <span @click="switchActivePill($event)" class="pill activePill"
-      >r/programmingmemes</span
-    >
     <span
       v-for="subreddit in subreddits"
       :key="subreddit"
@@ -18,8 +15,8 @@ export default {
   data() {
     return {
       subreddits: [
-        "dankmemes",
         "programminghumor",
+        "dankmemes",
         "memes",
         "terriblefacebookmemes",
         "dndmemes",
@@ -33,7 +30,6 @@ export default {
         "whitepeopletwitter",
         "boottoobig",
         "bonehurtingjuice",
-        "dankchristianmemes",
         "historymemes",
         "musicmemes",
         "kenm",
@@ -88,8 +84,8 @@ export default {
   padding: 15px;
   width: 100vw;
   overflow-x: scroll;
-  background: #ffffff07;
-  backdrop-filter: blur(10px);
+  background: #00000054;
+  backdrop-filter: blur(20px);
   .pill {
     margin: 10px;
     background: #ffffff1c;
