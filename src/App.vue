@@ -83,7 +83,7 @@ body {
   overflow: hidden;
 }
 .memes {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-padding-bottom: 0vh;
   overflow-y: scroll;
   height: 100vh;
