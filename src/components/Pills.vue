@@ -26,6 +26,9 @@ export default {
         "trippinthroughtime",
         "anime_irl",
         "data_irl",
+        "hmmm",
+        "MemeEconomy",
+        "thanosdidnothingwrong",
         "blackpeopletwitter",
         "whitepeopletwitter",
         "boottoobig",
@@ -33,29 +36,31 @@ export default {
         "historymemes",
         "musicmemes",
         "kenm",
-        "meow_irl",
-        "woof_irl",
         "prequelmemes",
         "sequelmemes",
         "OTmemes",
         "youdontsurf",
         "starterpacks",
+        "ohffensivememes",
       ],
     };
   },
   methods: {
     switchActivePill(e, subreddit) {
-      document.querySelector(".activePill").classList.remove("activePill");
+      if (document.querySelector(".activePill")) {
+        document.querySelector(".activePill").classList.remove("activePill");
+      }
       e.target.classList.add("activePill");
       document.body.scrollTop = 0;
-      this.memeFetcher(subreddit);
+      this.fetchNew(subreddit);
     },
-    memeFetcher(subreddit) {
+    fetchNew(subreddit) {
       const loading = this.$vs.loading({
         text: "Relaaax. Let me help you waste time,ok",
-        background: "black",
+        background: "#141417",
+        type: "waves",
       });
-      fetch(`https://www.reddit.com/r/${subreddit}/new.json`)
+      fetch(`https://www.reddit.com/r/${subreddit}/new.json?limit=100`)
         .then((res) => {
           return res.json(); // Convert the data into JSON
         })
@@ -73,9 +78,10 @@ export default {
             memes.push(image);
           });
           memes.shift();
-          this.$emit("memes", memes);
+          this.$emit("memes", memes, subreddit);
         })
         .catch(function(err) {
+          loading.close();
           console.log(err); // Log error if any
         });
     },
@@ -86,6 +92,7 @@ export default {
 <style lang="scss">
 .Pills {
   position: fixed;
+  z-index: 10;
   bottom: 0;
   padding: 15px;
   width: 100vw;
