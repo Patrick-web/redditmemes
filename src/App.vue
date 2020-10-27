@@ -3,16 +3,6 @@
     <!-- <Timeout /> -->
     <div class="memes">
       <MemeCard v-for="meme in memes" :key="meme.id" :imageSrc="meme.source" />
-      <!-- <vs-button
-        v-if="currentFetch < 3"
-        id="fetchMoreBt"
-        @click="getMoreMemes"
-        block
-        square
-      >
-        Show me More
-        <img src="@/assets/memehead.jpeg" alt="" />
-      </vs-button> -->
     </div>
     <Pills
       v-on:moreMemes="addMemes"
@@ -69,113 +59,6 @@ export default {
       }
       this.currentFetch += 1;
     },
-    // fetchRising(subreddit) {
-    //   console.log(this.currentSubreddit);
-    //   const supplementaryMemes = [];
-    //   fetch(`https://www.reddit.com/r/${this.currentSubreddit}/rising.json`)
-    //     .then((res) => {
-    //       return res.json(); // Convert the data into JSON
-    //     })
-    //     .then((res) => {
-    //       const postsArr = res.data.children;
-    //       postsArr.forEach((post) => {
-    //         const image = {
-    //           id: Math.random()
-    //             .toString(12)
-    //             .substring(0),
-    //           source: post.data.url,
-    //         };
-    //         supplementaryMemes.push(image);
-    //       });
-    //       supplementaryMemes.shift();
-    //       supplementaryMemes.forEach((meme) => {
-    //         this.memes.push(meme);
-    //       });
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err); // Log error if any
-    //     });
-    // },
-    // fetchHot(subreddit) {
-    //   const supplementaryMemes = [];
-    //   fetch(`https://www.reddit.com/r/${this.currentSubreddit}/hot.json`)
-    //     .then((res) => {
-    //       return res.json(); // Convert the data into JSON
-    //     })
-    //     .then((res) => {
-    //       const postsArr = res.data.children;
-    //       postsArr.forEach((post) => {
-    //         const image = {
-    //           id: Math.random()
-    //             .toString(12)
-    //             .substring(0),
-    //           source: post.data.url,
-    //         };
-    //         supplementaryMemes.push(image);
-    //       });
-    //       supplementaryMemes.shift();
-    //       supplementaryMemes.forEach((meme) => {
-    //         this.memes.push(meme);
-    //       });
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err); // Log error if any
-    //     });
-    // },
-    // fetchRandom(subreddit) {
-    //   const supplementaryMemes = [];
-    //   fetch(`https://www.reddit.com/r/${this.currentSubreddit}/random.json`)
-    //     .then((res) => {
-    //       return res.json(); // Convert the data into JSON
-    //     })
-    //     .then((res) => {
-    //       const postsArr = res.data.children;
-    //       postsArr.forEach((post) => {
-    //         const image = {
-    //           id: Math.random()
-    //             .toString(12)
-    //             .substring(0),
-    //           source: post.data.url,
-    //         };
-    //         supplementaryMemes.push(image);
-    //       });
-    //       supplementaryMemes.shift();
-    //       supplementaryMemes.forEach((meme) => {
-    //         this.memes.push(meme);
-    //       });
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err); // Log error if any
-    //     });
-    // },
-    // fetchControversial(subreddit) {
-    //   const supplementaryMemes = [];
-    //   fetch(
-    //     `https://www.reddit.com/r/${this.currentSubreddit}/controversial.json`
-    //   )
-    //     .then((res) => {
-    //       return res.json(); // Convert the data into JSON
-    //     })
-    //     .then((res) => {
-    //       const postsArr = res.data.children;
-    //       postsArr.forEach((post) => {
-    //         const image = {
-    //           id: Math.random()
-    //             .toString(12)
-    //             .substring(0),
-    //           source: post.data.url,
-    //         };
-    //         supplementaryMemes.push(image);
-    //       });
-    //       supplementaryMemes.shift();
-    //       supplementaryMemes.forEach((meme) => {
-    //         this.memes.push(meme);
-    //       });
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err); // Log error if any
-    //     });
-    // },
   },
   components: {
     Pills,
@@ -197,12 +80,13 @@ export default {
 }
 body {
   background: black;
+  overflow: hidden;
 }
 .memes {
-  scroll-snap-type: y proximity;
-  scroll-padding-top: 80vh;
+  scroll-snap-type: y mandatory;
+  scroll-padding-bottom: 0vh;
   overflow-y: scroll;
-  height: 85vh;
+  height: 100vh;
 }
 #fetchMoreBt {
   font-weight: 800;

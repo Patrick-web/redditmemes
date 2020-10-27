@@ -47,6 +47,11 @@ export default {
   },
   methods: {
     switchActivePill(e, subreddit) {
+      document.querySelector(".memes").scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
       if (document.querySelector(".activePill")) {
         document.querySelector(".activePill").classList.remove("activePill");
       }

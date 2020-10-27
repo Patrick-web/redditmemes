@@ -23,7 +23,7 @@ export default {
   width: 100vw;
   height: 100vh;
   position: relative;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   .blurImage {
     position: absolute;
     top: 0;
@@ -59,6 +59,13 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+@media (min-width: 700px) {
+  .MemeCard {
+    width: 50%;
+    margin: auto;
+    transform: scale(0.8);
   }
 }
 </style>
