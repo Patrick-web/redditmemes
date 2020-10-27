@@ -65,7 +65,7 @@ export default {
         background: "#141417",
         type: "waves",
       });
-      fetch(`https://www.reddit.com/r/${subreddit}/new.json?limit=100`)
+      fetch(`https://www.reddit.com/r/${subreddit}/new.json?limit=20`)
         .then((res) => {
           return res.json(); // Convert the data into JSON
         })
