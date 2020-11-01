@@ -9,6 +9,7 @@
       v-on:memes="getFirstMemes"
       msg="Welcome to Your Vue.js App"
     />
+<script data-ad-client="ca-pub-6949293872741529" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
 </template>
 
