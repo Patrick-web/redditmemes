@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <Timeout /> -->
+    <Timeout />
     <div class="memes">
       <MemeCard v-for="meme in memes" :key="meme.id" :imageSrc="meme.source" />
     </div>
@@ -10,7 +10,7 @@
       msg="Welcome to Your Vue.js App"
     />
   </div>
-/template>
+</template>
 
 <script>
 import Pills from "./components/Pills.vue";
