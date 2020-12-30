@@ -1,6 +1,13 @@
 <template>
   <div class="Pills">
     <span
+      v-for="subreddit in newSubreddits"
+      :key="subreddit"
+      @click="switchActivePill($event, subreddit)"
+      class="pill"
+      >r/{{ subreddit }}</span
+    >
+    <span
       v-for="subreddit in subreddits"
       :key="subreddit"
       @click="switchActivePill($event, subreddit)"
@@ -12,6 +19,10 @@
 
 <script>
 export default {
+  props: {
+    maxResults: String,
+    newSubreddits: Array,
+  },
   data() {
     return {
       subreddits: [
@@ -65,7 +76,9 @@ export default {
         background: "#141417",
         type: "waves",
       });
-      fetch(`https://www.reddit.com/r/${subreddit}/new.json?limit=20`)
+      fetch(
+        `https://www.reddit.com/r/${subreddit}/new.json?limit=${this.maxResults}`
+      )
         .then((res) => {
           return res.json(); // Convert the data into JSON
         })
@@ -80,7 +93,13 @@ export default {
                 .substring(0),
               source: post.data.url,
             };
-            memes.push(image);
+            if (
+              post.data.url.includes(".png") ||
+              post.data.url.includes(".jpg") ||
+              post.data.url.includes(".jpeg")
+            ) {
+              memes.push(image);
+            }
           });
           memes.shift();
           this.$emit("memes", memes, subreddit);

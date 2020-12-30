@@ -1,10 +1,9 @@
 <template>
   <div class="MemeCard">
-    <!-- <img class="blurImage" :src="imageSrc" alt="" /> -->
     <div class="memeArea">
       <img class="memeImage" :src="imageSrc" alt="" />
       <div class="skeleton">
-        <p>Waiting for the high res meme</p>
+        <p>Waiting for the high res meme....</p>
       </div>
     </div>
   </div>
@@ -21,17 +20,10 @@ export default {
 <style lang="scss">
 .MemeCard {
   width: 100vw;
-  height: 100vh;
   position: relative;
-  scroll-snap-align: center;
-  .blurImage {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    filter: blur(30px);
-    opacity: 0.2;
-  }
+  background: rgb(34, 34, 34);
+  color: white;
+  margin-bottom: 20px;
   .memeArea {
     width: 100%;
     height: 100%;
@@ -39,13 +31,10 @@ export default {
     justify-content: center;
     align-items: center;
     .memeImage {
+      object-fit: contain;
       margin: auto;
-      width: 95%;
+      max-width: 95%;
       border-radius: 10px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       z-index: 3;
     }
   }
