@@ -92,7 +92,7 @@ export default {
     addSubreddit() {
       this.newSubreddits.unshift(this.newSubreddit.replace("r/", ""));
       const notify = this.$vs.notification({
-        text: `r/${this.newSubreddit} added`,
+        title: `r/${this.newSubreddit} added`,
         position: "top-left",
         color: "success",
       });
@@ -105,7 +105,7 @@ export default {
           .then(() => {})
           .catch(() => {
             const notify = this.$vs.notification({
-              text: `Cannot go fullscreen 🤥`,
+              title: `Cannot go fullscreen 🤥`,
               position: "top-left",
               color: "danger",
             });
