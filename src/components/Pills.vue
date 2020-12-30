@@ -112,6 +112,7 @@ export default {
     padding-right: 10px;
     padding-left: 10px;
     color: white;
+    cursor: pointer;
   }
   .activePill {
     background: #008cff !important;
