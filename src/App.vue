@@ -154,10 +154,6 @@ export default {
   },
   mounted() {
     document.querySelector(".pill").click();
-    document.body
-      .requestFullscreen()
-      .then(() => {})
-      .catch(() => console.log("No full screen"));
     window.addEventListener("offline", () => {
       const notify = this.$vs.notification({
         text: "I need internet to feed  you memes!",
