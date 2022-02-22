@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "com.mik.justpatrick",
+                     "sha256_cert_fingerprints": ["AD:F7:B8:23:1F:5F:DE:78:15:AD:5D:B1:EA:22:38:C1:7D:CB:DF:4C:C6:D3:DC:6A:15:94:63:DF:8E:4E:41:98"] }
+      }
+]
